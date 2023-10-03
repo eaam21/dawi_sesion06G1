@@ -7,6 +7,7 @@
 </head>
 <body>
 	<div class="container">
+		<img th:src="@{/images/ciberfarma.png}" alt="mi imagen">
 		<form th:action="@{/grabar}" th:object="${producto}" method="post">
 			<div class="form-group">
 				<label for="inputCodigo">Código</label>
