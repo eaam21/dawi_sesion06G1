@@ -2,6 +2,7 @@ package org.ciberfarma.controller;
 
 import org.ciberfarma.model.Producto;
 import org.ciberfarma.repository.IProductoRepository;
+import org.ciberfarma.repository.ICategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,9 @@ public class ProductoController {
 	@Autowired
 	private IProductoRepository repo;
 	
+	@Autowired
+	private ICategoriaRepository cat;
+	
 	@GetMapping("/listar")
 	public String listadoProducto(Model model) {
 		model.addAttribute("lstProductos", repo.findAll());
@@ -25,6 +29,7 @@ public class ProductoController {
 	public String cargarPag(Model model) {
 		Producto prod = new Producto();
 		model.addAttribute("producto", prod);
+		model.addAttribute("lstCategorias", cat.findAll());
 		return "crudproductos";
 	}
 	
