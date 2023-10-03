@@ -38,4 +38,11 @@ public class ProductoController {
 		repo.save(producto);
 		return "exito";
 	}
+	
+	@GetMapping("/editar/{codigo}")
+	public String editar(@ModelAttribute Producto producto, Model model) {
+		model.addAttribute("producto", repo.findByCodigo(producto.getCodigo()));
+		model.addAttribute("lstCategorias", cat.findAll());
+		return "editar";
+	}
 }

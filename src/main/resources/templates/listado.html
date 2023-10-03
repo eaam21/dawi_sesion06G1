@@ -29,10 +29,7 @@
     				<td th:text="${p.precio}"></td>
     				<td th:text="${p.idCategoria}"></td>
     				<td>
-    					<form action="/editar" method="post">
-    						<input type="hidden" name="codigo" th:value="${p.codigo}">
-    						<button type="submit" class="btn btn-info">Editar</button>
-    					</form>
+    					<a class="btn btn-warning" th:href="@{'/editar/' + ${p.codigo}}" role="button">Editar</a>
     				</td>
     				<td>
     					<form action="@{/eliminar}" method="post">
