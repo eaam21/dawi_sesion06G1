@@ -47,9 +47,7 @@
 					<label for="inputProveedor">Proveedor</label>
 					<select id="inputProveedor" class="form-control" th:field="*{idProveedor}">
 						<option th:value="-1" th:text="Seleccione"></option>
-						<option th:value="1" th:text="Pharmalab"></option>
-						<option th:value="2" th:text="Minsa"></option>
-						<option th:value="3" th:text="'La Naturista'"></option>
+						<option th:each="p : ${lstProveedores}" th:value="${p.idProveedor}" th:text="${p.nombre}"></option>
 					</select>
 				</div>
 			</div>
