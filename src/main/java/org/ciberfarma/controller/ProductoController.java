@@ -7,6 +7,7 @@ import org.ciberfarma.repository.ICategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -56,4 +57,12 @@ public class ProductoController {
 		model.addAttribute("lstProveedores", prov.findAll());
 		return "editar";
 	}
+
+	@PostMapping("/eliminar")
+	public String eliminar(@ModelAttribute Producto producto) {
+		Producto prod = repo.findByCodigo(producto.getCodigo());
+		repo.delete(prod);
+		return "redirect:/listar";
+	}
+	
 }
