@@ -30,7 +30,7 @@
 			<div class="row mb-5">
 				<div class="form-group col-md-4">
 					<label for="inputCategoria">Categoria</label>
-					<select id="inputCategoria" class="form-control" th:field="*{idCategoria}">
+					<select id="inputCategoria" class="form-control" th:field="*{categoria.idCategoria}">
 						<option th:value="-1" th:text="Seleccione"></option>
 						<option th:each="c : ${lstCategorias}" th:value="${c.idCategoria}" th:text="${c.descripcion}"></option>
 						<!--<option th:value="1" th:text="Pastillas"></option>-->

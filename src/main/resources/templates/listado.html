@@ -27,7 +27,7 @@
     				<td th:text="${p.descripcion}"></td>
     				<td th:text="${p.stock}"></td>
     				<td th:text="${p.precio}"></td>
-    				<td th:text="${p.idCategoria}"></td>
+    				<td th:text="${p.categoria.descripcion}"></td>
     				<td>
     					<a class="btn btn-warning" th:href="@{'/editar/' + ${p.codigo}}" role="button">Editar</a>
     				</td>

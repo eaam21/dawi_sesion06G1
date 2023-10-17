@@ -3,6 +3,8 @@ package org.ciberfarma.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,11 +24,17 @@ public class Producto {
 	@Column(name="pre_prod")
 	private double precio;
 	
-	private int idCategoria;
+	//@Column(name="idcategoria")
+	//private int idCategoria;
+	
+	@ManyToOne
+	@JoinColumn(name="idcategoria")
+	private Categoria categoria;
 	
 	@Column(name="est_prod")
 	private int estado;
 	
+	@Column(name="idproveedor")
 	private int idProveedor;
 
 	public String getCodigo() {
@@ -61,12 +69,12 @@ public class Producto {
 		this.precio = precio;
 	}
 
-	public int getIdCategoria() {
-		return idCategoria;
+	public Categoria getCategoria() {
+		return categoria;
 	}
 
-	public void setIdCategoria(int idCategoria) {
-		this.idCategoria = idCategoria;
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
 	public int getEstado() {
