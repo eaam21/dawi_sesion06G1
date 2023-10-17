@@ -43,6 +43,12 @@ public class ProductoController {
 		return "exito";
 	}
 	
+	@PostMapping("/actualizar")
+	public String actualizarPag(@ModelAttribute Producto producto) {
+		repo.save(producto);
+		return "actualizado";
+	}
+	
 	@GetMapping("/editar/{codigo}")
 	public String editar(@ModelAttribute Producto producto, Model model) {
 		model.addAttribute("producto", repo.findByCodigo(producto.getCodigo()));

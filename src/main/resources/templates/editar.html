@@ -8,7 +8,7 @@
 <body>
 	<div class="container">
 		<img th:src="@{/images/ciberfarma.png}" alt="mi imagen">
-		<form th:action="@{/grabar}" th:object="${producto}" method="post">
+		<form th:action="@{/actualizar}" th:object="${producto}" method="post">
 			<div class="form-group">
 				<label for="inputCodigo">Código</label>
 				<input th:field="*{codigo}" class="form-control" id="inputCodigo" placeHolder="P00" th:value="${producto.codigo}" required>
