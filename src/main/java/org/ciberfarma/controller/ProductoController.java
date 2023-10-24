@@ -68,9 +68,10 @@ public class ProductoController {
 	}
 
 	@PostMapping("/eliminar")
-	public String eliminar(@ModelAttribute Producto producto) {
+	public String eliminar(@ModelAttribute Producto producto, RedirectAttributes attribute) {
 		Producto prod = repo.findByCodigo(producto.getCodigo());
 		repo.delete(prod);
+		attribute.addFlashAttribute("success","Eliminado con éxito!");		
 		return "redirect:/listar";
 	}
 	

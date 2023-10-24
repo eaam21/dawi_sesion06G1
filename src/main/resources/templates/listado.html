@@ -9,7 +9,15 @@
   <body>
     <div class="container">
     	<h4>Listado de Productos</h4>
-    	<a class="btn btn-success" href="/" role="button">Nuevo Producto</a>
+    	<a class="btn btn-success" href="/" role="button">Nuevo Producto</a><br><br>
+		<div class="alert alert-success alert-dismissible fade show" th:if="${success}!=null" role="alert">
+		  <label th:text="${success}"></label>
+		  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+		<div class="alert alert-danger alert-dismissible fade show" th:if="${unsuccess}!=null" role="alert">
+		  <label th:text="${unsuccess}"></label>
+		  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
     	<table class="table table-hover" id="myTable">
     		<thead>
     			<tr>
