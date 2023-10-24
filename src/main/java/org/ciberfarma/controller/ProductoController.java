@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class ProductoController {
@@ -39,9 +40,13 @@ public class ProductoController {
 	}
 	
 	@PostMapping("/grabar")
-	public String grabarPag(@ModelAttribute Producto producto) {
-		repo.save(producto);
-		return "exito";
+	public String grabarPag(@ModelAttribute Producto producto, RedirectAttributes attribute) {
+		if(repo.save(producto) != null) {
+			attribute.addFlashAttribute("success", "Registrado con éxito!");
+		}else {
+			attribute.addFlashAttribute("unsuccess", "Error registrando!");
+		}
+		return "redirect:/";
 	}
 	
 	@PostMapping("/actualizar")
