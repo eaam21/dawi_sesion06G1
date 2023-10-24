@@ -81,8 +81,8 @@
 					return $(this).text();
 				}).get();
 				console.log(data);
-				$('#codigo').val(data[0]);
-				$('#nombreProducto').text("¿Está seguro de eliminar el producto: "+data[1]+"?");
+				$('#codigo').val(data[1]);
+				$('#nombreProducto').text("¿Está seguro de eliminar el producto: "+data[2]+"?");
 			})
 		});
 	</script>
