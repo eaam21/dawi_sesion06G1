@@ -50,9 +50,13 @@ public class ProductoController {
 	}
 	
 	@PostMapping("/actualizar")
-	public String actualizarPag(@ModelAttribute Producto producto) {
-		repo.save(producto);
-		return "actualizado";
+	public String actualizarPag(@ModelAttribute Producto producto, RedirectAttributes attribute) {
+		if(repo.save(producto) != null) {
+			attribute.addFlashAttribute("success", "Actualizado con éxito!");
+		}else {
+			attribute.addFlashAttribute("unsuccess", "Error actualizando!");
+		}
+		return "redirect:/editar/"+producto.getCodigo();
 	}
 	
 	@GetMapping("/editar/{codigo}")

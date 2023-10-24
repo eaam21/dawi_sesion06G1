@@ -15,7 +15,7 @@
 		<div class="alert alert-danger alert-dismissible fade show" th:if="${unsuccess}!=null" role="alert">
 		  <label th:text="${unsuccess}"></label>
 		  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		</div>		
+		</div>
 		<form th:action="@{/grabar}" th:object="${producto}" method="post">
 			<div class="form-group">
 				<label for="inputCodigo">Código</label>
