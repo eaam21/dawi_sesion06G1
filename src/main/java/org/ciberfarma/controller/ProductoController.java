@@ -31,7 +31,7 @@ public class ProductoController {
 		return "listado";
 	}
 	
-	@GetMapping("/")
+	@GetMapping("/nuevo")
 	public String cargarPag(Model model) {
 		Producto prod = new Producto();
 		model.addAttribute("producto", prod);
@@ -46,7 +46,7 @@ public class ProductoController {
 		}else {
 			attribute.addFlashAttribute("unsuccess", "Error registrando!");
 		}
-		return "redirect:/";
+		return "redirect:/nuevo";
 	}
 	
 	@PostMapping("/actualizar")

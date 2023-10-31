@@ -1,25 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-<h2>Acceso al sistema</h2>
 <div class="container">
-	<form th:action="@{/validar}" method="post" th:object="${usuario}">
-		<div class="form-group">
-			<label for="inputUsuario">Usuario</label>
-			<input type="text" th:field="*{correo}" class="form-control" id="inputUsuario" placeholder="Ingrese su usuario">
+	<div class="row">
+		<div class="col">
 		</div>
-		<div class="form-group">
-			<label for="inputClave">Clave</label>
-			<input type="password" th:field="*{clave}" class="form-control" id="inputClave" placeholder="Ingrese su clave">		
+		<div class="col">
+			<h3 style="color:rgb(255, 128, 0)">Acceso al sistema Ciberfarma</h3>
+			<form th:action="@{/validar}" method="post" th:object="${usuario}">
+				<div class="form-group">
+					<label for="inputUsuario">Usuario</label>
+					<input type="text" th:field="*{correo}" class="form-control" id="inputUsuario" placeholder="Ingrese su usuario">
+				</div>
+				<div class="form-group">
+					<label for="inputClave">Clave</label>
+					<input type="password" th:field="*{clave}" class="form-control" id="inputClave" placeholder="Ingrese su clave">		
+				</div>
+				<br>
+				<button type="submit" class="btn btn-primary">Ingreso</button>
+			</form>
 		</div>
-		<br>
-		<button type="submit" class="btn btn-primary">Ingreso</button>
-	</form>
+		<div class="col">
+		</div>				
+	</div>
 	<br>
 	<div class="alert alert-danger" role="alert" th:if="${mensaje}" th:text="${mensaje}"></div>
 </div>

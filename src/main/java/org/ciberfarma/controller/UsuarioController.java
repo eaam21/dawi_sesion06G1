@@ -16,7 +16,7 @@ public class UsuarioController {
 	@Autowired
 	private IUsuarioRepository usu;
 	
-	@GetMapping("/login")
+	@GetMapping("/")
 	public String formularioLogin(Model model) {
 		Usuario usuario = new Usuario();
 		model.addAttribute("usuario", usuario);
@@ -31,6 +31,6 @@ public class UsuarioController {
 		}else {
 			attribute.addFlashAttribute("mensaje", "Error iniciando sesión.");
 		}
-		return "redirect:/login";
+		return "redirect:/";
 	}
 }
