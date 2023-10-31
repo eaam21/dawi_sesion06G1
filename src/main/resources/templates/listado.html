@@ -77,12 +77,14 @@
 			$('.deletebtn').on('click',function(){
 				$('#eliminarModal').modal('show');
 				$tr = $(this).closest('tr');
+				
 				var data = $tr.children("td").map(function(){
 					return $(this).text();
 				}).get();
+				
 				console.log(data);
 				$('#codigo').val(data[1]);
-				$('#nombreProducto').text("¿Está seguro de eliminar el producto: "+data[2]+"?");
+				$('#nombreProducto').text("¿Está seguro de eliminar el producto: "+data[2]+"?");				
 			})
 		});
 	</script>
