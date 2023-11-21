@@ -120,7 +120,7 @@ public class ProductoController {
 	@PostMapping(value="/reporte", params="exportar")
 	public void exportar(@RequestParam(name="idCategoria") int idCategoria, HttpServletResponse response) throws JRException, SQLException {
 		String nombreReporte = "reporte_productos";
-		response.setHeader("Content-Disposition", "inline; filename="+nombreReporte+".pdf");
+		response.setHeader("Content-Disposition", "attachment; filename="+nombreReporte+".pdf");
 		response.setContentType("application/pdf");
 		try {
 			String ru = resourceLoader.getResource("classpath:reportes/lista_productos.jasper").getURI().getPath();
@@ -137,7 +137,7 @@ public class ProductoController {
 	@PostMapping(value="/reporte", params="graficar")
 	public void graficar(@RequestParam(name="idCategoria") int idCategoria, HttpServletResponse response) throws JRException, SQLException {
 		String nombreReporte = "grafico_productos";
-		response.setHeader("Content-Disposition", "inline; filename="+nombreReporte+".pdf");
+		response.setHeader("Content-Disposition", "attachment; filename="+nombreReporte+".pdf");
 		response.setContentType("application/pdf");
 		try {
 			String ru = resourceLoader.getResource("classpath:reportes/graficos.jasper").getURI().getPath();
